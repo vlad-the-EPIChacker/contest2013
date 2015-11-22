@@ -42,5 +42,17 @@ def WUZZAP():
     for key in nucs.keys():
         if nucs[key]==big:
             print key,':',nucs[key]
+def simplest():
+    every=[0]*256
+    big=0
+    letter=0
+    for i in range(0, len(DNA)):
+        every[ord(DNA[i])]+=1
+    for i in range(0, len(every)):
+        if every[i]>big:
+            big=every[i]
+            letter=chr(i)
+    print letter, ':', big
 #WUZZAP()
-dostuff()
+#dostuff()
+simplest()
