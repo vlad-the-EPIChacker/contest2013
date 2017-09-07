@@ -6,15 +6,15 @@ def det(col,row):
     x=0
     for y in range(0,len(col)):
         row1=[row[ii] for ii in range(0, len(row)) if ii!=x]
-        col1=[row[ii] for ii in range(0, len(col)) if ii!=y]
+        col1=[col[ii] for ii in range(0, len(col)) if ii!=y]
         sum1=det(col1,row1)
         co=m[row[x]][col[y]]
         if y%2==1:
             co *= -1
-        if len(col)==4:
-            print "3x3",sum1,co
-        if len(col)==3:
-            print sum1,co
+        #if len(col)==4:
+            #print "3x3",sum1,co
+        #if len(col)==3:
+            #print sum1,co
         sum1 *= co
         sum += sum1
     return sum
@@ -34,4 +34,3 @@ while c<ncases:
     print det([i for i in range(0,len(m))],[i for i in range(0,len(m))])
     l += nlines
     c+=1
-    print 'c =',c
