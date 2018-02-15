@@ -1,3 +1,5 @@
+import random
+
 def binary(a):
     if len(a)==0:
         return (None,None,None)
@@ -35,6 +37,31 @@ def insert(t,n):
         return (t[0],insert(t[1],n),t[2])
     if t[0]<n:
         return (t[0],t[1], insert(t[2],n))
+
+def height(t,n):
+    if t==None:
+        return n
+    a=[height(t[1],n+1),height(t[2],n+1)]
+    return max(a)
+
+
+def printLevelOrder(t):
+    if t is None:
+        return
+
+    queue = []
+
+    queue.append(t)
+
+    while len(queue) > 0:
+        print queue[0][0],
+        node = queue.pop(0)
+
+        if node[1] is not None:
+            queue.append(node[1])
+
+        if node[2] is not None:
+            queue.append(node[2])
 
 array1=[]
 start=[1,2,3,4,5,6,7]
@@ -95,3 +122,41 @@ for i in start1:
 array1=[]
 inorder(tree,array1)
 print array1
+
+start=[1,2,3,4,5,6,7]
+tree=binary(start)
+print tree
+print height(tree,0)
+
+start1=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+start=[]
+tree=None
+print ''
+for i in start1:
+    print insert(tree,i)
+    tree=insert(tree,i)
+array1=[]
+print tree
+print height(tree,0)
+
+start1=[2,3,8,4,1,6,5,7,9,10,20,15,19,13,11,12,14,16,15,18,17,1]
+start=[]
+tree=None
+print ''
+for i in start1:
+    print insert(tree,i)
+    tree=insert(tree,i)
+array1=[]
+inorder(tree,array1)
+print tree
+print height(tree,0)
+
+start1=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
+start=[]
+tree=None
+print ''
+for i in start1:
+    print insert(tree,i)
+    tree=insert(tree,i)
+array1=[]
+printLevelOrder(tree)
