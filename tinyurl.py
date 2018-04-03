@@ -28,7 +28,6 @@ def decode(s):
         s=s[1:]
     return n
 
-'''
 input1=''
 while input1!='exit':
     print("\nInput integer:")
@@ -36,7 +35,6 @@ while input1!='exit':
     input1=int(input1)
     print("Encoded:",encode(input1))
     print("Decoded:", decode(encode(input1)))
-'''
 
 print(decode(encode(11)))
 print(decode(encode(1)))
